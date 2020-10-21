@@ -55,6 +55,7 @@ public class Solution120 {
         int[] dp = new int[len];
         dp[0] = triangle.get(0).get(0);
 
+        //这里的状态转移方程是从上往下算的，要保证当前行dp[j]和dp[j - 1]都没算过，所以j是要倒着来的
         for (int i = 1; i < len; ++i) {
             //这句话不要写错，是从i-1加过来的
             dp[i] = dp[i - 1] + triangle.get(i).get(i);
