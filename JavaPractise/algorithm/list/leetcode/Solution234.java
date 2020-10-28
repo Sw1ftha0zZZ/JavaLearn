@@ -1,6 +1,5 @@
 package algorithm.list.leetcode;
 
-
 import java.util.Stack;
 
 /**
@@ -16,7 +15,7 @@ import java.util.Stack;
 public class Solution234 {
 
     public static boolean isPalindrome(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return true;
         }
 
@@ -24,26 +23,29 @@ public class Solution234 {
         ListNode slow = head;
 
         while (fast.next != null && fast.next.next != null) {
-            slow = slow.next;
             fast = fast.next.next;
+            slow = slow.next;
         }
 
-        ListNode rightPart = reverseList(slow);
+        ListNode rightPart = reverseList(slow.next);
+        slow.next = null;
 
         ListNode leftTemp = head;
         ListNode rightTemp = rightPart;
 
-        while (leftTemp != null && rightTemp != null) {
+        //设置ans变量是为了保证不会提前return导致链表没恢复到原来的样子
+        boolean ans = true;
+
+        while (ans && rightTemp != null){
             if (leftTemp.val != rightTemp.val) {
-                return false;
-            }else {
-                leftTemp = leftTemp.next;
-                rightTemp = rightTemp.next;
+                ans = false;
             }
+            leftTemp = leftTemp.next;
+            rightTemp = rightTemp.next;
         }
 
-        reverseList(rightPart);
-        return true;
+        slow.next = reverseList(rightPart);
+        return ans;
     }
 
 
@@ -70,6 +72,11 @@ public class Solution234 {
 
 
         System.out.println(flag);
+
+        while (head != null) {
+            System.out.println(head.val);
+            head = head.next;
+        }
 
     }
 

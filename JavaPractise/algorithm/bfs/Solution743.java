@@ -9,6 +9,10 @@ import java.util.*;
  * @date 2020/08/26
  *
  * Dijkstra
+ *
+ * times = [[2,1,1],[2,3,1],[3,4,1]], N = 4, K = 2
+ *
+ * 2到1权重为1，2到3权重为1...
  */
 
 public class Solution743 {
@@ -47,7 +51,7 @@ public class Solution743 {
 
             visited.put(node, weight);
 
-
+            //要保证有边出来，比如例题中的节点1就是没有出来的边的，对1就做不了下面的操作，所以要加上这个if判断
             if (graph.containsKey(node)){
 
                 //对所有和当前节点相连接的点操作
