@@ -1,0 +1,17 @@
+
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰Ôµ¨úÿÿÿÿ8½ë¿ˆÔ.
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(‰Ôµ¨úÿÿÿÿ8½ë¿ˆÔ.
+?
+java:S1659"#Declare "skipT" on a separate line.(Šµ‡8½ë¿ˆÔ.
+m	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çï€»8óùšˆÔ.
+8
+java:S3626J"Remove this redundant jump.(ÉŠ©ƒ8óùšˆÔ.
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰Ôµ¨úÿÿÿÿ8½ë¿ˆÔ.
+A
+java:S1659"Declare "j" on a separate line.(Ñú Ïþÿÿÿÿ8½ë¿ˆÔ.
+o
+java:S3776>"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Çï€»8óùšˆÔ.
+m	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çï€»8óùšˆÔ.
+8
+java:S3626V"Remove this redundant jump.(ÉŠ©ƒ8óùšˆÔ.

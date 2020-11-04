@@ -1,0 +1,6 @@
+
+t
+java:S3012L"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(÷³ŸÜûÿÿÿÿ
+1
+java:S36266"Remove this redundant jump.(ûÁÝ…
+s	java:S135%"YReduce the total number of break and continue statements in this loop to use at most one.(ç•Ìðúÿÿÿÿ

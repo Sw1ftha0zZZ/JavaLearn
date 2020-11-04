@@ -1,0 +1,18 @@
+
+a
+java:S1192"FDefine a constant instead of duplicating this literal "hello" 3 times.(¸¡Üàýÿÿÿÿ
+>
+java:S1148""#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+>
+java:S11484"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+>
+java:S1148F"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+\
+java:S2142!"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¸¡Üàýÿÿÿÿ
+\
+java:S21423"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106."9Replace this use of System.out or System.err by a logger.(¸¡Üàýÿÿÿÿ
+\
+java:S2142E"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+S	java:S106@"9Replace this use of System.out or System.err by a logger.(¸¡Üàýÿÿÿÿ

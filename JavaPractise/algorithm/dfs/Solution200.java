@@ -25,7 +25,7 @@ public class Solution200 {
             int newRow = x + direction[0];
             int newCol = y + direction[1];
 
-            //注意：条件有三条：没访问过 + 是1 + 不越界
+            //注意：条件有三条：不越界 + 没访问过 + 是1
             if (inArea(newRow, newCol, visited.length, visited[0].length) && grid[newRow][newCol] == '1' && !visited[newRow][newCol]) {
                 dfs(newRow, newCol, visited, grid);
             }
