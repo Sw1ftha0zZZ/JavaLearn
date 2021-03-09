@@ -39,21 +39,32 @@ public class Solution2 {
         return dummy.next;
     }
 
+    public static void test(ListNode l1) {
+        l1.val = 10000;
+        l1.next = new ListNode(777);
+    }
+
     public static void main(String[] args) {
         ListNode l1 = new ListNode(5);
-//        l1.next = new ListNode(4);
-//        l1.next.next = new ListNode(3);
+        l1.next = new ListNode(4);
+        l1.next.next = new ListNode(3);
 
         ListNode l2 = new ListNode(5);
-//        l2.next = new ListNode(6);
-//        l2.next.next = new ListNode(4);
+        l2.next = new ListNode(6);
+        l2.next.next = new ListNode(4);
 
-        ListNode l3 = addTwoNumbers(l1,l2);
-
-        while (l3!= null){
-            System.out.println(l3.val);
-            l3 = l3.next;
+        test(l2);
+        while (l2 != null) {
+            System.out.println(l2.val);
+            l2 = l2.next;
         }
+
+//        ListNode l3 = addTwoNumbers(l1,l2);
+//
+//        while (l3!= null){
+//            System.out.println(l3.val);
+//            l3 = l3.next;
+//        }
 
     }
 }

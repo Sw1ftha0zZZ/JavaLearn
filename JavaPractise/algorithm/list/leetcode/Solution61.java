@@ -36,11 +36,7 @@ public class Solution61 {
             dummy.next = temp2;
         }
 
-
-
-
         return dummy.next;
-
     }
 
     public static void main(String[] args) {

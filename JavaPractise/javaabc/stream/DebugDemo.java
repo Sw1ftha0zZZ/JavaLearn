@@ -1,4 +1,4 @@
-package algorithm.stream;
+package javaabc.stream;
 
 import java.util.stream.IntStream;
 
