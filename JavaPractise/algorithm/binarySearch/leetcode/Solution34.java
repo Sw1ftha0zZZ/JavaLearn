@@ -1,5 +1,8 @@
 package algorithm.binarySearch.leetcode;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * Demo class
  *
@@ -12,7 +15,7 @@ package algorithm.binarySearch.leetcode;
  */
 
 public class Solution34 {
-    public int[] searchRange(int[] nums, int target) {
+    public static int[] searchRange(int[] nums, int target) {
         int len = nums.length;
         if (len == 0){
             return new int[] {-1, -1};
@@ -24,7 +27,7 @@ public class Solution34 {
         int lastIndex = findLastPosition(nums, target);
         return new int[] {firstIndex, lastIndex};
     }
-    public int findLastPosition(int[] nums, int target){
+    public static int findLastPosition(int[] nums, int target){
         int left = 0;
         int right = nums.length - 1;
         while (left < right){
@@ -38,7 +41,7 @@ public class Solution34 {
         }
         return left;
     }
-    public int findFirstPosition(int[] nums, int target){
+    public static int findFirstPosition(int[] nums, int target){
         int left = 0;
         int right = nums.length - 1;
         while (left < right) {
@@ -56,5 +59,16 @@ public class Solution34 {
             return left;
         }
         return -1;
+    }
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,3,3,3,4};
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            int[] res = searchRange(nums, Integer.parseInt(s));
+            System.out.print(res[0]);
+            System.out.print("，");
+            System.out.print(res[1]);
+        }
     }
 }

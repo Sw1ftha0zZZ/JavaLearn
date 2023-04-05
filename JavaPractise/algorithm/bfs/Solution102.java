@@ -15,7 +15,7 @@ class Solution102 {
         int N = grid[0].length;
         Queue<int[]> queue = new LinkedList<>();
 
-        int count = 0; // count 表示新鲜橘子的数量
+        int count = 0; // count 表示新橘子的数量
         for (int r = 0; r < M; r++) {
             for (int c = 0; c < N; c++) {
                 if (grid[r][c] == 1) {

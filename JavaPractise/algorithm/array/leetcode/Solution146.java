@@ -73,9 +73,11 @@ public class Solution146 {
             //从原来的位置删除
             //如果之前就在最后，那就不用addLast了
             if (node != tail) {
-                MyNode before = node.prev;
-                before.next = node.next;
-                before.next.prev = before;
+                node.prev.next = node.next;
+                node.next.prev = node.prev;
+
+                node.next = null;
+                node.prev = null;
                 //放到最后，本来map中就有这个kv，不需要再对map操作，只需要对链表操作
                 addLast(node);
             }
@@ -88,9 +90,11 @@ public class Solution146 {
                 //如果有，就把原来的那个先删除掉
                 MyNode node = map.get(key);
                 if (node != tail) {
-                    MyNode before = node.prev;
-                    before.next = node.next;
-                    before.next.prev = before;
+                    node.prev.next = node.next;
+                    node.next.prev = node.prev;
+
+                    node.next = null;
+                    node.prev = null;
                 }else {
                     //找到了，而且就在最后，那把原来的kv删掉，tail往前指，后面再加上新的kv
                     tail = tail.prev;
