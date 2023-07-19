@@ -24,6 +24,7 @@ public class Solution15 {
         for (int i = 0; i < len - 2; i++) {
             int first = i;
             int target = -nums[first];
+            // 去重，不然结果中会有重复的索引数组，排序后既然对这个值已经遍历过，那就不用再遍历
             if (first > 0 && nums[first] == nums[first - 1]) {
                 continue;
             }
