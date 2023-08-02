@@ -24,34 +24,38 @@ public class Solution912 {
         nums[j] = temp;
     }
     Random rand = new Random();
-    public void quickSort(int[] nums, int start, int end){
-        if (start >= end){
+    public void quickSort(int[] nums, int start, int end) {
+        if (start >= end) {
             return;
         }
-        int randomIndex = start + rand.nextInt(end - start + 1);
-        swap(nums, randomIndex, start);
+        int randIndex = start + rand.nextInt(end - start + 1);
+        swap(nums, start, randIndex);
+
         int pivot = nums[start];
-        int l = start + 1;
-        int r = end;
-        while (l <= r){
-            if (nums[l] < pivot){
-                l++;
+        int left = start + 1;
+        int right = end;
+
+        while (left <= right) {
+            if (nums[left] <= pivot) {
+                left++;
                 continue;
             }
-            if (nums[r] >= pivot){
-                r--;
+            if (nums[right] >= pivot) {
+                right--;
                 continue;
             }
-            swap(nums, l, r);
+            swap(nums, left, right);
         }
-        swap(nums, start, r);
-        quickSort(nums, start, r - 1);
-        quickSort(nums, l, end);
+        swap(nums, start, right);
+        quickSort(nums, start, right - 1);
+        quickSort(nums, left, end);
     }
+
     public int[] sortArray(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
         return nums;
     }
+
 
 
 
@@ -112,48 +116,46 @@ public class Solution912 {
 
 
 
-    //堆排序
+    //堆排序，把数组按下标存储成堆的形式
     public void heapSort(int[] nums) {
         int heapSize = nums.length;
-        buildMaxHeap(nums, heapSize);
-        for (int i = nums.length - 1; i >= 0; i--){
+        buildMaxHeap(nums);
+        for (int i = nums.length - 1; i >= 0; i--) {
             swap(nums, 0, i);
             heapSize--;
             heapify(nums, 0, heapSize);
         }
-
     }
 
-    public void buildMaxHeap(int[] nums, int heapSize){
-        for (int i = (heapSize - 1) / 2; i >= 0; i--){
-            heapify(nums, i, heapSize);
+    public void buildMaxHeap(int[] nums) {
+        for (int i = (nums.length - 1) / 2; i >= 0; i--) {
+            heapify(nums, i, nums.length);
         }
     }
 
-    public void heapify(int[] nums, int i, int heapSize){
-        int leftChild = 2 * i + 1;
-        int rightChild = 2 * i + 2;
-        int maxIndex = i;
-        if (leftChild < heapSize && nums[leftChild] > nums[maxIndex]){
-            maxIndex = leftChild;
-        }
-        if (rightChild < heapSize && nums[rightChild] > nums[maxIndex]){
-            maxIndex = rightChild;
-        }
+    public void heapify(int[] nums, int idx, int heapSize) {
+        int left = 2 * idx + 1;
+        int right = 2 * idx + 2;
 
-        if (maxIndex != i){
-            swap(nums, maxIndex, i);
+        int maxIndex = idx;
+        // 这里是和maxIndex比
+        if (left < heapSize && nums[left] > nums[maxIndex]) {
+            maxIndex = left;
+        }
+        // 这里是和maxIndex比
+        if (right < heapSize && nums[right] > nums[maxIndex]) {
+            maxIndex = right;
+        }
+        if (maxIndex != idx) {
+            swap(nums, idx, maxIndex);
             heapify(nums, maxIndex, heapSize);
         }
     }
-
 
 
     public int[] sortArray3(int[] nums) {
         heapSort(nums);
         return nums;
     }
-
-
 
 }

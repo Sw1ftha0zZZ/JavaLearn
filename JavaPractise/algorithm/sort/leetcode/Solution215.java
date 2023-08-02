@@ -35,7 +35,7 @@ public class Solution215 {
         int l = start + 1;
         int r = end;
         while (l <= r){
-            if (nums[l] > pivot){
+            if (nums[l] >= pivot){
                 l++;
                 continue;
             }
