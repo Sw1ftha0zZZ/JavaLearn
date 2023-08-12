@@ -26,6 +26,9 @@ public class Solution33 {
             }
 
             //判断是mid左边有序还是mid右边有序
+            // nums[left] <= nums[mid] 代表左半部分有序
+            // nums[left] = nums[mid] 代表左半部分有序
+            // nums[right] = nums[mid] 右半部分不一定有序
             //左半部分有序:nums[left] <= nums[mid]，注意，这里有等于号
             if (nums[left] <= nums[mid]){
                 if (nums[left] <= target && target < nums[mid]){

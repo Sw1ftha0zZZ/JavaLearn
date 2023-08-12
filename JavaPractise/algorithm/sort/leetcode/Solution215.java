@@ -93,4 +93,44 @@ public class Solution215 {
         }
         return minHeap.peek();
     }
+
+
+
+    public void buildMaxHeap(int[] nums) {
+        for (int i = (nums.length - 1) / 2; i >= 0; i--) {
+            heapify(nums, i, nums.length);
+        }
+    }
+
+    public void heapify(int[] nums, int idx, int heapSize) {
+        int left = 2 * idx + 1;
+        int right = 2 * idx + 2;
+
+        int maxIndex = idx;
+        if (left < heapSize && nums[left] > nums[maxIndex]) {
+            maxIndex = left;
+        }
+        if (right < heapSize && nums[right] > nums[maxIndex]) {
+            maxIndex = right;
+        }
+        if (maxIndex != idx) {
+            swap(nums, idx, maxIndex);
+            heapify(nums, maxIndex, heapSize);
+        }
+    }
+
+    public int findKthLargest3(int[] nums, int k) {
+        int heapSize = nums.length;
+        buildMaxHeap(nums);
+        for (int i = nums.length - 1; i >= nums.length - k; i--) {
+            swap(nums, 0, i);
+            heapSize--;
+            heapify(nums, 0, heapSize);
+        }
+
+        return nums[nums.length - k];
+    }
+
+
+
 }
