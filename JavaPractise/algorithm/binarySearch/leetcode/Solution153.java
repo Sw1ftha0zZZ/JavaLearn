@@ -18,6 +18,8 @@ public class Solution153 {
 
             //这样说明mid一定不是最小
             //同时，因为这个是旋转数组，这种情况下的左半部分一定不包含最小值
+            // 旋转数组找最小的突破口在无序的那一半
+            // 找最小值其实不是用mid去夹逼，而是排除，所以是left < right
             if (nums[mid] > nums[right]){
                 left = mid + 1;
             }else {
