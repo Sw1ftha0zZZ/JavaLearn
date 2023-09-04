@@ -15,36 +15,38 @@ import java.util.Arrays;
  */
 
 public class Solution300 {
-    public int lengthOfLIS(int[] nums){
+    public int lengthOfLIS(int[] nums) {
         int len = nums.length;
-        if (len <= 1){
+        if (len <= 1) {
             return len;
         }
 
-        //tail数组用于保存原数组中的上升子序列
+        // tail 数组的定义：长度为 i + 1 的上升子序列的末尾最小是几
         int[] tail = new int[len];
-        //init
+        // 遍历第 1 个数，直接放在有序数组 tail 的开头
         tail[0] = nums[0];
-        //end是tail数组最后一个已被赋值的元素的index
+        // end 表示有序数组 tail 的最后一个已经赋值元素的索引
         int end = 0;
 
-        for (int i = 1; i < len; ++i) {
-            //如果遍历到的nums[i]比tail[end]大，就end++，并将tail最后一个元素赋值
-            if (nums[i] > tail[end]){
+        for (int i = 1; i < len; i++) {
+            // 【逻辑 1】比 tail 数组实际有效的末尾的那个元素还大
+            if (nums[i] > tail[end]) {
+                // 直接添加在那个元素的后面，所以 end 先加 1
                 end++;
                 tail[end] = nums[i];
-            }else {
-                //二分法找nums[i]应该放在**tail数组**中的哪个位置
+            } else {
+                // 使用二分查找法，在有序数组 tail 中
+                // 找到第 1 个大于等于 nums[i] 的元素，尝试让那个元素更小
                 int left = 0;
                 int right = end;
                 while (left < right) {
-                    int mid = left + (right - left) / 2;
-
-                    //要找的是放在tail数组中的哪里，nums[i]相当于target
-                    //判断条件是tail[mid] < target
-                    if (tail[mid] < nums[i]){
+                    // 选左中位数不是偶然，而是有原因的，原因请见 LeetCode 第 35 题题解
+                    // int mid = left + (right - left) / 2;
+                    int mid = left + ((right - left) >>> 1);
+                    if (tail[mid] < nums[i]) {
+                        // 中位数肯定不是要找的数，把它写在分支的前面
                         left = mid + 1;
-                    }else {
+                    } else {
                         right = mid;
                     }
                 }
@@ -52,14 +54,13 @@ public class Solution300 {
                 // 因此，无需再单独判断
                 tail[left] = nums[i];
             }
-
             // 调试方法
-            //printArray(nums[i], tail);
-
+            // printArray(nums[i], tail);
         }
-
-        //返回长度，所以+1
-        return end + 1;
+        // 此时 end 是有序数组 tail 最后一个元素的索引
+        // 题目要求返回的是长度，因此 +1 后返回
+        end++;
+        return end;
     }
 
     /**

@@ -4,7 +4,7 @@ import	java.util.ArrayList;
 import java.util.List;
 
 /**
- * Demo class
+ * 放左边的元素的时候，要看右边已经放了多少，已经放了多少就是逆序对个数
  *
  * @author xinghao
  * @date 2020/08/03
