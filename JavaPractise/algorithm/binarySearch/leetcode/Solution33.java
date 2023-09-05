@@ -31,12 +31,16 @@ public class Solution33 {
             // nums[right] = nums[mid] 右半部分不一定有序
             //左半部分有序:nums[left] <= nums[mid]，注意，这里有等于号
             if (nums[left] <= nums[mid]){
+                // 左边有序
+                // 看target在左边还是在右边
                 if (nums[left] <= target && target < nums[mid]){
                     right = mid - 1;
                 }else {
                     left = mid + 1;
                 }
             }else {
+                // 右边有序
+                // 看target在左边还是在右边
                 if (nums[mid] < target && target <= nums[right]){
                     left = mid + 1;
                 }else {

@@ -33,7 +33,7 @@ public class Solution35 {
         int right = len - 1;
         while (left < right){
             int mid = left + (right - left) / 2;
-            //中间的值小于target，说明左半部分一定没有目标元素
+            //中间的值小于target，说明要插入的位置一定不在左边
             if (nums[mid] < target){
                 left = mid + 1;
             }else {
